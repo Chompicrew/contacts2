@@ -19,8 +19,9 @@
 
     function saveContact()
     {
-        var Nombre = document.getElementById("nombre").value;
         var Numero = document.getElementById("telefono").value;
+        var Nombre = document.getElementById("nombre").value;
+        
 
         var contactoS = navigator.contacts.create({"displayName" : Nombre});
        
