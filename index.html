@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Contacto Ejemplo</title>
+
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8"> 
+    
+        window.onload=function()
+        {
+            document.addEventListener("deviceready", onDeviceReady, false);
+          
+        }
+    
+    function onDeviceReady() 
+    {
+        document.getElementById('enviar').addEventListener('click', saveContact, false);
+    }
+
+    function saveContact()
+    {
+        var Nombre = document.getElementById("nombre").value;
+        var Numero = document.getElementById("telefono").value;
+
+        var contactoS = navigator.contacts.create({"displayName" : Nombre});
+       
+       var numerocon = [];
+       numerocon[0] = new ContactField('Numero', true);
+
+
+        contactoS.numerocon = numerocon;
+
+
+
+        contactoS.save( );
+
+    }
+    </script>
+  </head>
+  <body>
+    <h1>Ejemplo de contactos</h1>
+    <p>Contactos</p>
+    <form>
+        <label for="nombre">Nombre: </label></br>
+        <input type="text" id="nombre" /></br>
+        <label for="telefono">Telefono: </label></br>
+        <input type="number" id="telefono" /> </br>
+        <input type="button" value= "salvar contacto" id="enviar" />
+    </form>
+  </body>
+
+</html>
